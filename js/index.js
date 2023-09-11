@@ -1,17 +1,16 @@
 console.log('working');
 
-function myDay () {
+function setDay () {
     const currentDate = new Date();
     const dayOfTheWeek = currentDate.toLocaleString('en-US', { weekday: 'long'});
-    // console.log(dayOfTheWeek);
     return dayOfTheWeek;
 };
-document.getElementById("p1").innerHTML=myDay();
+document.getElementById("currentDayOfTheWeek").innerHTML=setDay();
 
-function myUTCTime (){
+function setTime (){
     const d = new Date();
-    const time = d.getUTCMilliseconds();
-    console.log(time);
-    return time;
-};
-document.getElementById("p2").innerHTML=myUTCTime();
+    const time = d.getTime();
+    document.getElementById("currentUTCTime").innerHTML=time;
+}
+
+setInterval(setTime, 1000);
